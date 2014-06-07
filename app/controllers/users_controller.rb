@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  skip_filter :verify_authenticity_token
+
   skip_filter :ensure_logged_in, only: [:new, :create]
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
@@ -41,7 +43,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit!
+    params.require(:user).permit(:email)
     # (:username, :first_name, :last_name, :email, :password, :password_confirmation)
   end
 
