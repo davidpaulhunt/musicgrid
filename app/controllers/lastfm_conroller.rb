@@ -1,4 +1,4 @@
-class LastfmController < ApplicationConroller
+class LastfmController < ApplicationController
 
   def get_album_info
     artist = params[:artist]
