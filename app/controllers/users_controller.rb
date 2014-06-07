@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    puts params
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
