@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get "login" => "sessions#new"
   get "logout" => "sessions#destroy"
   get "register" => "users#new"
+  get "mygrid" => "users#home"
+  get "auth/facebook" => "auth#facebook"
+  get "auth/facebook/callback" => "auth#facebook_callback"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

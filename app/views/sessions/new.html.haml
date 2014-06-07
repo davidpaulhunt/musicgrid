@@ -1,7 +1,43 @@
+%div#fb-root
+:javascript
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=256849947840141&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + JSON.stringify(response));
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
+      $.ajax({
+        url: "/users",
+        type: 'POST',
+        data: {
+          user: {
+            "email" : response.email
+            "first_name" : response.first_name,
+            "last_name" : response.last_name,
+            "username" : response.first_name + " " + response.last_name,
+            "password" : "",
+            "password_confirmation" : "",
+            "facebook_token" : ""
+          }
+        }
+      });
+    }
+
 = form_tag sessions_path do
   = email_field_tag :email, params[:email], placeholder: "email"
   = password_field_tag :password, params[:password], placeholder: "password"
   = submit_tag "Login", class: "btn btn-sm btn-primary"
+%br
+%div.fb-login-button{"data-max-rows" => "1", "data-size" => "medium", "data-show-faces" => "true", "data-auto-logout-link" => "true", "data-scope" => "email,user_likes,public_profile", "data-onlogin" => "testAPI"}
+#status
 
 %br
 %br
