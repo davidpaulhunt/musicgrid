@@ -1,0 +1,8 @@
+= form_tag sessions_path do
+  = email_field_tag :email, params[:email], placeholder: "email"
+  = password_field_tag :password, params[:password], placeholder: "password"
+  = submit_tag "Login", class: "btn btn-sm btn-primary"
+
+%br
+%br
+= link_to "Register", register_path

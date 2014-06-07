@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: musicgrid_development
+  pool: 5
+
+test:
+  adapter: postgresql
+  encoding: utf8
+  database: musicgrid_test
+  pool: 5
+
+production:
+  adapter: postgresql
+  encoding: utf8
+  database: musicgrid
+  pool: 5
