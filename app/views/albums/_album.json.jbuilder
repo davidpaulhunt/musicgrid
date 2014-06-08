@@ -1,0 +1,1 @@
+json.(@album, :id, :name, :artist, :image_url, :lastfm_url)

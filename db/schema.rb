@@ -11,10 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140607143547) do
+ActiveRecord::Schema.define(version: 20140607230749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "albums", force: true do |t|
+    t.string   "name"
+    t.string   "artist"
+    t.string   "last_fm_url"
+    t.string   "image_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "preferences", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "swipes", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "album_id"
+    t.integer  "preference_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "first_name"
@@ -25,6 +48,7 @@ ActiveRecord::Schema.define(version: 20140607143547) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "facebook_token"
+    t.string   "native_access_token"
   end
 
 end
