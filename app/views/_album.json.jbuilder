@@ -1,0 +1,1 @@
+_album.json.jbuilder

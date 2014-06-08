@@ -1,0 +1,1 @@
+json.(@user, :native_access_token)

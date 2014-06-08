@@ -1,6 +1,19 @@
 Rails.application.routes.draw do
+  namespace :api do
+    resource :sessions, only: [:create, :destroy]
+    get "login" => "sessions#create"
+    post "login" => "sessions#create"
+    get "logout" => "sessions#destroy"
+    resources :users, only: [:create, :show, :update, :destroy]
+    post "users/show" => "users#show"
+    get "users/edit" => "users#edit"
+    patch "users/update" => "users#update"
+    post "albums" => "albums#create"
+  end
+
   resources :sessions, only: [:new, :create, :destroy]
   resources :users, only: [:create, :show, :edit, :update, :destroy]
+  resources :albums
 
   get "login" => "sessions#new"
   get "logout" => "sessions#destroy"
