@@ -1,28 +1,30 @@
+=== MusicGrid.me
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+=== ABOUT
 
-Things you may want to cover:
+This app is a bare bones development API for discovering new music. It was built during the IronHack2014 hackathon.
 
-* Ruby version
+It is not a production app nor is it complete. It's main purpose was to provide the logic, database, and authentication for our iOS developers.
 
-* System dependencies
+=== Installation / Setup
 
-* Configuration
+Clone repo locally. Install gems:
 
-* Database creation
+    bundle install
 
-* Database initialization
+Set up database. We are using postgresql. You'll need to refer to postgres documentation for downloading and using the database.
 
-* How to run the test suite
+    rake db:create db:migrate
 
-* Services (job queues, cache servers, search engines, etc.)
+=== Tests
 
-* Deployment instructions
+We haven't written any tests, yet.
 
-* ...
+=== Contributing
 
+We are currently not taking contributions at the moment.
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+=== Licensing
+
+MIT license. MusicGrid.me owns the name and logo used within the application.
